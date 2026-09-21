@@ -1,4 +1,4 @@
-import { HardDrive, KeyRound, Server } from "lucide-react";
+import { HardDrive, KeyRound, Server, List } from "lucide-react";
 
 export const examples =[
     {
@@ -19,7 +19,7 @@ export const examples =[
     },
     {
         id:3,
-        method: "Ofline",
+        method: "Offline",
         verb: "Get",
         description: "Lista séries consumida no SessionStorage.",
         color: "purple",
@@ -29,29 +29,12 @@ export const examples =[
 ];
 
 export const crud = [
-    {
-        id:1,
-        method: "ApiKey",
-        verb: "Get",
-        description: "Lista series com api-key exposta.",
-        color: "purple",
-        Icon: KeyRound
-
-    },
-    {
+{
         id:2,
-        method: "SSR",
+        method: "Read",
         verb: "Get",
-        description: "Lista series renderizadas no SSR.",
-        color: "purple",
-        Icon: Server
-    },
-    {
-        id:3,
-        method: "Ofline",
-        verb: "Get",
-        description: "Lista séries consumida no SessionStorage.",
-        color: "purple",
-        Icon: HardDrive
+        description: "Lista  todas as séries.",
+        color: "green",
+        Icon: List
     }
 ]
