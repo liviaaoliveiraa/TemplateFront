@@ -8,7 +8,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom right, aliceblue, lightskyblue);
+    background-color: rgb(218, 239, 252);
+    font-family: Arial, sans-serif;
 }
 
 main {
@@ -32,3 +33,4 @@ main {
     flex-direction: row;
     gap: 1rem;
 }
+

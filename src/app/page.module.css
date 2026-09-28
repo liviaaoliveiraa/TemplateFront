@@ -11,7 +11,8 @@
 }
 
 .footer {
-    background-color: lightskyblue;
+    background-color: rgb(181, 220, 245);
     text-align: center;
     padding: 1rem 2rem;
+    color: white;
 }

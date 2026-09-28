@@ -18,3 +18,21 @@ export async function GET(req) {
 
     }
 }
+
+export async function POST(req) {
+    const { searchParams } = new URL (req.url);
+
+    try {
+        const resp = await axios.post(process.env.API_URL_SERIES, await req.json(),{
+            params: Object.fromEntries(searchParams),
+            headers: { 'x-api-key': process.env.API_KEY},
+        });
+        return NextResponse.json(resp.data);
+    }catch (error) {
+        const status = error.response?.status || 500;
+        const data = error.response?.data || { error: 'Erro ao criar a série'};
+
+        return NextResponse.json(data, { status });
+
+    }
+}
