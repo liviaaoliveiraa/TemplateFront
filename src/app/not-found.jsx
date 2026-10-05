@@ -1,11 +1,5 @@
-import {Result} from 'antd';
+import { Result } from "antd";
 
 export default function NotFound() {
-    return(
-        <Result
-            status='404'
-            title='404'
-            subTitle=' A página não existe.'
-            />
-    )
+  return <Result status="404" title="404" subTitle=" A página não existe." />;
 }

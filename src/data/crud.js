@@ -46,11 +46,19 @@ export const examples = [
 
 export const crud = [
     {
-        id: 4,
+        id: 1,
         method: 'Create',
         verb: 'Post',
         description: 'Cria série via modal e API Route.',
         color: 'orange',
         Icon: PlusCircle,
+    },
+    {
+        id: 2,
+        method: 'Read',
+        verb: 'Get',
+        description: 'Listar séries no SSR e busca pelo id em rota dinamica',
+        color: 'green',
+        Icon: List,
     },
 ]

@@ -1,56 +1,56 @@
 .header {
-    background-color: rgb(181, 220, 245);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    color: white;
+  background-color: rgb(181, 220, 245);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  color: white;
 }
 
 .header h1 {
-    margin-right: 1rem;
-    color: white;
+  margin-right: 1rem;
+  color: white;
 }
 
 .left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .atom {
-    display: flex;
-    animation: spin 10s linear infinite;
-    color: rgb(95, 177, 209);
+  display: flex;
+  animation: spin 10s linear infinite;
+  color: rgb(95, 177, 209);
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .header h2 {
-    margin-bottom: 0.5rem;
-    color: white;
+  margin-bottom: 0.5rem;
+  color: white;
 }
 
 .header span {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
 }
 
 .verb {
-    font-weight: bold;
-    text-decoration: none;
-    color: rgb(28, 101, 129);
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(28, 101, 129);
 }
 
 .verb:hover {
-    text-decoration: underline;
-    color:rgb(28, 101, 129);
+  text-decoration: underline;
+  color: rgb(28, 101, 129);
 }

@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export default function OfflinePage() {
-    const [series,setSeries] = useState([]);
+  const [series, setSeries] = useState([]);
 
-    useEffect(() => {
-        const stored = sessionStorage.getItem('series');
-        setSeries(stored ? JSON.parse(stored) : []);
-    }, []);
+  useEffect(() => {
+    const stored = sessionStorage.getItem("series");
+    setSeries(stored ? JSON.parse(stored) : []);
+  }, []);
 
-    return (
-        <main>
-            <h2> GET - Offline</h2>
-            <p> SessionsStorage e nunca (fetch/axios) a API.</p>
-            <ul>
-                {series.map((item) => (
-                    <li key={item.id}>{item.title}</li>
-                ))}
-            </ul>
-        </main>
-    )
+  return (
+    <main>
+      <h2> GET - Offline</h2>
+      <p> SessionsStorage e nunca (fetch/axios) a API.</p>
+      <ul>
+        {series.map((item) => (
+          <li key={item.id}>{item.title}</li>
+        ))}
+      </ul>
+    </main>
+  );
 }
