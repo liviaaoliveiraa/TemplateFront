@@ -1,5 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
+import { Card } from "antd";
 
 export default async function Series() {
   let series = [];
@@ -17,10 +18,24 @@ export default async function Series() {
   }
 
   return (
-    <ul>
+    <ul
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 360px))",
+        gap: 16,
+        listStyle: "none",
+        width: "100%",
+        justifyContent: "center",
+      }}
+    >
       {series.map((item) => (
-        <li key={item.id}>
-          <Link href={`/read/${item.id}`}>{item.title}</Link>
+        <li key={item.id} style={{ minWidth: 0 }}>
+          <Card size="small" title={<Link href={`/read/${item.id}`}>{item.title}</Link>}>
+            <p>Gênero: {item.genero}</p>
+            <p>Plataforma: {item.plataforma}</p>
+            <p>Temporadas: {item.numero_temporadas}</p>
+            <p>Ano de lançamento: {item.ano_lancamento}</p>
+          </Card>
         </li>
       ))}
     </ul>
