@@ -4,8 +4,9 @@ import axios from 'axios';
 import { useEffect, useState} from 'react';
 import { useParams } from 'next/navigation';
 import toast from 'react-hot-toast';
-import FormModal from '@/components/FormModal';
+import FormModal from '@components/FormModal';
 import {Button, Card, Skeleton} from 'antd';
+import ConfirmDelete from '@components/ConfirmDelete';
 
 export default function ReadById() {
     const { id } = useParams();
@@ -15,21 +16,6 @@ export default function ReadById() {
     const [deleteOpen, setDeleteOpen] = useState(false);
     const [saving, setSaving] = useState(false);
     const [deleting, setDeleting] = useState(false);
-
-    const handleUpdate = async (values) => {
-        setSaving(true);
-
-        try {
-            const response = await axios.put(`/api/series/${id}`, values);
-            setSerie(response.data);
-            setEditOpen(false);
-            toast.success('Série atualizada com sucesso!', { id: 'read-id' });
-        } catch (error) {
-            toast.error('Erro ao atualizar a série.', { id: 'read-id' });
-        } finally {
-            setSaving(false);
-        }
-    };
 
     useEffect(() => {
         async function buscarSerie() {
@@ -45,6 +31,38 @@ export default function ReadById() {
 
         buscarSerie();
     }, [id]);
+
+    const handleUpdate = async (values) => {
+        setSaving(true);
+
+        try {
+        await axios.put(`/api/series/${id}`, values);
+        setSerie({ ...serie, ...values });
+        setEditOpen(false);
+        toast.success('Série atualizada com sucesso.', { id: 'update-success' });
+        } catch (error) {
+         toast.error('Erro ao atualizar a série.', { id: 'update-error' });
+         console.error(error);
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const handleDelete = async () => {
+        setDeleting(true);
+
+        try {
+            await axios.delete(`/api/series/${id}`);
+            setSerie(null);
+            setDeleteOpen(false);
+            toast.success('Série excluída com sucesso.', { id: 'delete-success' });
+        } catch (error) {
+            toast.error('Erro ao excluir a série.', { id: 'delete-error' });
+            console.error(error);
+        } finally {
+            setDeleting(false);
+            }
+        };
 
     return (
         <main>
@@ -81,6 +99,13 @@ export default function ReadById() {
                                 serie={serie}
                                 onSubmit={handleUpdate}
                                 onCancel={() => setEditOpen(false)}
+                            />
+                            <ConfirmDelete
+                                openModal={deleteOpen}
+                                serie={serie}
+                                confirmloading={deleting}
+                                onSubmit={handleDelete}
+                                onCancel={() => setDeleteOpen(false)}
                             />
                             </>
                         )
